@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: testService
+          uri: http://localhost:8080/
+          predicates:
+            - Path=/hello**
+        - id: test8081
+          uri: http://localhost:8081/
+          predicates:
+            - Path=//8081**
+        - id: test8082
+          uri: http://localhost:8082/
+          predicates:
+            - Path=//8082**
+
+  
